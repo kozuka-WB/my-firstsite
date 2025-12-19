@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Document</title>
+</head>
+<body>
+    <header>
+        <div class="logo">ロゴ</div>
+        <nav>
+            <ul>
+                <li>About</li>
+                <li>Works</li>
+                <li>Contact</li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section>
+            <h1 class="mainvisual">Main Visual</h1>
+        </section>
+
+    <section class="About">
+        <h2>About</h2>
+
+        <!-- 🔽 追加（プロフィール画像） -->
+        <img src="images/スクリーンショット 2025-04-16 15.51.42.png" alt="プロフィール画像" class="profile-image">
+
+        <p class="name">小塚 優</p>
+        <p class="bunsyou">ゆる〜くのんびりと頑張りすぎないように</p>
+    </section>
+
+<section class="Works">
+    <h2>Works</h2>
+
+    <div class="works-grid">
+        <img src="images/among us.png" alt="アモングアス">
+        <img src="images/椅子と机.png" alt="椅子と机">
+        <img src="images/glass.png" alt="グラス">
+        <img src="images/うさぎ.png" alt="うさぎ">
+        <img src="images/カプセル.png" alt="カプセル">
+        <img src="images/コイル.png" alt="コイル">
+        <img src="images/ジャム.png" alt="ジャム">
+        <img src="images/ポテト.png" alt="ポテト">
+        <img src="images/電池.png" alt="電池">
+    </div>
+</section>
+
+
+        <section class="Contact">
+            <h2>Contact</h2>
+
+            <div class="status-container">
+            <p id="current-status">ステータスを読み込み中...</p>
+            </div>
+
+            <ul>
+                <li>@x_mdc_student84592</li>
+                <li>@insta_mdc_student84592</li>
+                <li>student84592@mdc-vd.com</li>
+            </ul>
+        </section>
+    </main>
+
+    <footer>
+        <p>© 2025 FULL NAME</p>
+        <p>Want to see more? Send a message!</p>
+    </footer>
+
+    <script>
+document.addEventListener('DOMContentLoaded', function() {
+    const statusElement = document.getElementById('current-status');
+    const container = document.querySelector('.status-container');
+    
+    function updateStatus() {
+        const now = new Date();
+        const dayOfWeek = now.getDay(); // 0 (日曜日) - 6 (土曜日)
+        const hour = now.getHours();
+        
+        // --- ⚙️ 設定箇所 ------------------------------------
+        const startHour = 10; // 作業開始時間 (10時)
+        const endHour = 18;   // 作業終了時間 (18時)
+        // ----------------------------------------------------
+
+        // 営業日の判定 (1=月曜, 5=金曜)
+        const isWeekday = dayOfWeek >= 1 && dayOfWeek <= 5;
+        
+        // 営業時間内の判定
+        const isWorkingHours = hour >= startHour && hour < endHour;
+        
+        let message = '';
+        
+        if (isWeekday && isWorkingHours) {
+            // 営業時間内 (平日 10:00～18:00)
+            message = `💻 NOW: 作業時間内です。ご連絡は通常2時間以内に確認します！`;
+            container.classList.remove('off-hours');
+            
+        } else if (isWeekday) {
+            // 営業時間外だが平日 (例: 平日の早朝/夜)
+            message = `🌙 NOW: 作業時間外です。緊急でない限り、翌営業日の午前10時以降に確認します。`;
+            container.classList.add('off-hours');
+
+        } else {
+            // 週末 (土曜・日曜)
+            message = `🏝️ NOW: 週末のため休止中です。お問い合わせは月曜に確認します！`;
+            container.classList.add('off-hours');
+        }
+        
+        statusElement.textContent = message;
+    }
+
+    // ページロード時に実行
+    updateStatus();
+
+    // 1分ごとにステータスを更新（時間が変わるタイミングをカバーするため）
+    setInterval(updateStatus, 60000); 
+});
+</script>
+</body>
+</html>
