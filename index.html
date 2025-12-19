@@ -82,6 +82,11 @@
         <p>Want to see more? Send a message!</p>
     </footer>
 
+    <div id="image-modal" class="modal">
+    <span class="close-button">&times;</span>
+    <img class="modal-content" id="expanded-image">
+</div>
+
     <script>
 document.addEventListener('DOMContentLoaded', function() {
     const statusElement = document.getElementById('current-status');
@@ -130,6 +135,35 @@ document.addEventListener('DOMContentLoaded', function() {
     // 1分ごとにステータスを更新（時間が変わるタイミングをカバーするため）
     setInterval(updateStatus, 60000); 
 });
+
+document.addEventListener('DOMContentLoaded', function() {
+    const modal = document.getElementById('image-modal');
+    const expandedImg = document.getElementById('expanded-image');
+    
+    // 画像を探す（.works-gridの中にあるimgタグをすべて取得）
+    const images = document.querySelectorAll('.works-grid img');
+
+    if (!modal || !expandedImg) {
+        console.error("エラー: モーダル用のHTML(id='image-modal')が見つかりません。");
+        return;
+    }
+
+    images.forEach(img => {
+        img.addEventListener('click', () => {
+            console.log("クリックされました:" + img.src); // 動作確認用ログ
+            modal.style.display = 'flex';
+            expandedImg.src = img.src;
+            document.body.style.overflow = 'hidden';
+        });
+    });
+
+    modal.addEventListener('click', () => {
+        modal.style.display = 'none';
+        document.body.style.overflow = 'auto';
+    });
+});
 </script>
+
+
 </body>
 </html>
