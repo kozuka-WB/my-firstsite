@@ -1,0 +1,190 @@
+/* -------------------------
+   全体（シンプル＆読みやすい）
+-------------------------- */
+body {
+    margin: 0;
+    font-family: Arial, "Hiragino Sans", "Noto Sans JP", sans-serif;
+    line-height: 1.7;
+    color: #e8e8e8;
+    background: #1b1b1b;
+    text-align: center;
+}
+
+/* -------------------------
+   ヘッダー（最小限のスタイル）
+-------------------------- */
+header {
+    padding: 40px 0; /* 上下のパディングを大きく（20px -> 40px に変更） */
+    background: rgba(34, 34, 34, 0.95);
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5); /* 影を強調 */
+}
+
+.logo {
+    font-size: 28px; /* ロゴの文字サイズも少し大きく */
+    font-weight: 800;
+    color: var(--accent-color);
+    margin-bottom: 15px; /* メニューとの間隔を少し広げる */
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    gap: 25px;
+    padding: 0;
+    margin: 0;
+    font-size: 25px;
+}
+
+/* -------------------------
+   Main Visual（中央に1行だけ）
+-------------------------- */
+.mainvisual {
+    height: 60vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    font-size: 40px;
+    font-weight: bold;
+    color: #ffffff;
+
+    background: #333; /* 背景画像を使わないシンプル版 */
+}
+
+/* -------------------------
+   セクション共通（シンプルに）
+-------------------------- */
+section {
+    padding: 70px 20px;
+}
+
+section h2 {
+    font-size: 30px;
+    margin-bottom: 20px;
+    color: #ffffff;
+}
+
+/* -------------------------
+   About（文章の読みやすさだけ確保）
+-------------------------- */
+.About {
+    padding-top: 100px;    /* 上側の余白 */
+    padding-bottom: 100px; /* 下側の余白 */
+    /* 以前設定した下のセクションとの間のマージンは、必要に応じて調整または削除してください */
+    margin-bottom: 0; /* 下のWorksとの間に追加していた余白をリセットする場合 */
+}
+.About-content {
+    max-width: 600px;
+    margin: 0 auto;
+    margin-bottom: 80px;
+}
+
+/* -------------------------
+   Works（背景色だけ変えて区切り）
+-------------------------- */
+.Works {
+    background: #222;
+}
+
+/* -------------------------
+   Contact
+-------------------------- */
+.Contact ul {
+    list-style: none;
+    padding: 0;
+}
+
+.Contact li {
+    margin-bottom: 8px;
+}
+
+/* -------------------------
+   フッター
+-------------------------- */
+footer {
+    padding: 20px;
+    background: #222;
+    font-size: 13px;
+    color: #cfcfcf;
+}
+
+/* プロフィール画像（丸くする） */
+.profile-image {
+    width: 150px;          /* 大きさ（お好みで変更） */
+    height: 150px;
+    object-fit: cover;     /* トリミングして綺麗に表示 */
+    border-radius: 50%;    /* ← 丸くする */
+    margin-bottom: 20px;   /* 名前との間の余白 */
+}
+
+/* Works ギャラリー（3×3） */
+.works-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* 3列 */
+    gap: 20px;                             /* 画像の間隔 */
+    max-width: 900px;                      /* 全体の幅を制限して整える */
+    margin: 0 auto;                        /* 中央寄せ */
+}
+
+.works-grid img {
+    width: 100%;
+    aspect-ratio: 1 / 1;                   /* 正方形にする */
+    object-fit: cover;                     /* トリミングして綺麗に表示 */
+    border-radius: 8px;                    /* シンプルな角丸（不要なら外せます） */
+}
+
+section h2 {
+    font-size: 50px;   /* ← お好みで 36〜50px などに変更 */
+    margin-bottom: 25px;
+    color: #ffffff;
+}
+
+main {
+    padding-top: 100px; /* ヘッダーの高さ+αの余白を追加 */
+    margin-top: 0;
+}
+
+/* -------------------------
+   Contact ステータス表示のスタイリング
+-------------------------- */
+.status-container {
+    margin-bottom: 30px;
+    padding: 15px 20px;
+    border: 2px dashed var(--accent-color); /* ダッシュ線で枠を強調 */
+    border-radius: 8px;
+    max-width: 450px;
+    margin-left: auto;
+    margin-right: auto;
+    background: #222;
+}
+
+#current-status {
+    font-size: 16px;
+    font-weight: bold;
+    font-family: 'Consolas', 'Courier New', monospace; /* コードっぽいフォント */
+    color: var(--accent-color);
+    margin: 0;
+}
+
+/* 非営業時間のメッセージを強調するスタイル */
+.status-container.off-hours {
+    border-color: #ffcc00; /* 注意を促す黄色 */
+}
+.status-container.off-hours #current-status {
+    color: #ffcc00;
+}
+
+.bunsyou{
+    font-size: 20px;
+}
+
+.name{
+    font-size: 30px;
+}
+
