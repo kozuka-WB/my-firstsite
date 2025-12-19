@@ -45,7 +45,7 @@ nav ul {
    Main Visual（中央に1行だけ）
 -------------------------- */
 .mainvisual {
-    height: 60vh;
+    height: 45vh;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -55,6 +55,7 @@ nav ul {
     color: #ffffff;
 
     background: #333; /* 背景画像を使わないシンプル版 */
+    margin-bottom: 0;
 }
 
 /* -------------------------
@@ -92,17 +93,7 @@ section h2 {
     background: #222;
 }
 
-/* -------------------------
-   Contact
--------------------------- */
-.Contact ul {
-    list-style: none;
-    padding: 0;
-}
 
-.Contact li {
-    margin-bottom: 8px;
-}
 
 /* -------------------------
    フッター
@@ -146,7 +137,7 @@ section h2 {
 }
 
 main {
-    padding-top: 100px; /* ヘッダーの高さ+αの余白を追加 */
+    padding-top: 120px; /* ヘッダーの高さ+αの余白を追加 */
     margin-top: 0;
 }
 
@@ -188,3 +179,141 @@ main {
     font-size: 30px;
 }
 
+.About {
+    padding-top: 30px; /* section共通の80pxを上書きして余白を詰める */
+}
+
+/* -------------------------
+   Contactセクション（A+C 統合版）
+-------------------------- */
+.Contact {
+    background: linear-gradient(180deg, #1b1b1b 0%, #252525 100%);
+    padding: 100px 20px;
+    border-top: 1px solid #333;
+}
+
+.contact-inner {
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+/* Plan C: リード文 */
+.contact-header {
+    margin-bottom: 40px;
+}
+
+.contact-header h2 {
+    font-size: 50px;
+    font-weight: 900;
+    margin-bottom: 20px;
+    text-shadow: 0 0 15px rgba(0, 188, 212, 0.3);
+}
+
+.contact-lead {
+    font-size: 18px;
+    color: #ccc;
+    line-height: 1.8;
+}
+
+/* 勤務時間ステータス（微調整） */
+.status-container {
+    display: inline-block;
+    margin-bottom: 50px;
+    padding: 10px 25px;
+    background: #222;
+    border: 1px solid var(--accent-color);
+    border-radius: 50px; /* 丸みをつけてモダンに */
+    box-shadow: 0 0 15px rgba(0, 188, 212, 0.1);
+}
+
+/* Plan A: カードデザイン */
+.contact-cards {
+    list-style: none;
+    padding: 0;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* 横並び・スマホで縦 */
+    gap: 20px;
+}
+
+.contact-cards li a {
+    text-decoration: none;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 30px 20px;
+    background: #2a2a2a;
+    border-radius: 15px;
+    border: 1px solid #333;
+    transition: all 0.4s cubic-bezier(0.25, 1, 0.5, 1);
+    color: #fff;
+}
+
+.contact-cards .icon {
+    font-size: 32px;
+    margin-bottom: 10px;
+}
+
+.contact-cards .label {
+    font-size: 12px;
+    text-transform: uppercase;
+    color: var(--accent-color);
+    letter-spacing: 1px;
+    margin-bottom: 5px;
+}
+
+.contact-cards .value {
+    font-size: 16px;
+    font-weight: bold;
+}
+
+/* ホバーエフェクト：カードが浮き上がり、色が反転する */
+.contact-cards li a:hover {
+    transform: translateY(-10px);
+    background: var(--accent-color);
+    color: #ffffff;
+    border-color: var(--accent-color);
+    box-shadow: 0 15px 30px rgba(0, 188, 212, 0.4);
+}
+
+.contact-cards li a:hover .label {
+    color: #ffffff;
+    opacity: 0.8;
+}
+
+/* --- X (Twitter): 色の反転を無くす設定 --- */
+.sns-x a:hover {
+    /* 背景色を元の色のまま（または少しだけ明るく）にする */
+    background-color: #2a2a2a; 
+    
+    /* 文字色を白のまま固定する */
+    color: #ffffff; 
+    
+    /* 枠線をアクセントカラーにする（または元のままなら #333） */
+    border-color: var(--accent-color); 
+    
+    /* 浮き上がる動きだけは残す（クリック感のため） */
+    transform: translateY(-10px);
+    
+    /* 影を少しだけアクセントカラーにして「光っている感」を出す */
+    box-shadow: 0 10px 20px rgba(0, 188, 212, 0.2);
+}
+
+/* ホバー時に中のラベルの色が変わらないように固定 */
+.sns-x a:hover .label {
+    color: var(--accent-color);
+    opacity: 1;
+}
+
+/* 2番目のカード（Instagram）をインスタっぽいグラデーションに */
+.contact-cards li:nth-child(2) a:hover {
+    background: linear-gradient(45deg, #f09433, #e6683c, #dc2743, #cc23b6, #bc1888);
+    color: #fff;
+    border-color: transparent;
+}
+
+/* 3番目のカード（Email）を落ち着いたグレーに */
+.contact-cards li:nth-child(3) a:hover {
+    background: #444;
+    color: #fff;
+    border-color: var(--accent-color);
+}
