@@ -1,0 +1,384 @@
+/* -------------------------
+   全体（シンプル＆読みやすい）
+-------------------------- */
+body {
+    margin: 0;
+    font-family: Arial, "Hiragino Sans", "Noto Sans JP", sans-serif;
+    line-height: 1.7;
+    color: #e8e8e8;
+    background: #1b1b1b;
+    text-align: center;
+}
+
+/* -------------------------
+   ヘッダー（最小限のスタイル）
+-------------------------- */
+header {
+    padding: 40px 0; /* 上下のパディングを大きく（20px -> 40px に変更） */
+    background: rgba(34, 34, 34, 0.95);
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5); /* 影を強調 */
+}
+
+.logo {
+    font-size: 32px; /* ロゴの文字サイズも少し大きく */
+    font-weight: 800;
+    color: var(--accent-color);
+    margin-bottom: 15px; /* メニューとの間隔を少し広げる */
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    gap: 25px;
+    padding: 0;
+    margin: 0;
+    font-size: 25px;
+}
+
+/* -------------------------
+   Main Visual（中央に1行だけ）
+-------------------------- */
+.mainvisual {
+    height: 45vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    font-size: 40px;
+    font-weight: bold;
+    color: #ffffff;
+
+    background: #333; /* 背景画像を使わないシンプル版 */
+    margin-bottom: 0;
+}
+
+/* -------------------------
+   セクション共通（シンプルに）
+-------------------------- */
+section {
+    padding: 70px 20px;
+}
+
+section h2 {
+    font-size: 30px;
+    margin-bottom: 20px;
+    color: #ffffff;
+}
+
+/* -------------------------
+   About（文章の読みやすさだけ確保）
+-------------------------- */
+.About {
+    padding-top: 100px;    /* 上側の余白 */
+    padding-bottom: 100px; /* 下側の余白 */
+    /* 以前設定した下のセクションとの間のマージンは、必要に応じて調整または削除してください */
+    margin-bottom: 0; /* 下のWorksとの間に追加していた余白をリセットする場合 */
+}
+.About-content {
+    max-width: 600px;
+    margin: 0 auto;
+    margin-bottom: 80px;
+}
+
+/* -------------------------
+   Works（背景色だけ変えて区切り）
+-------------------------- */
+.Works {
+    background: #222;
+}
+
+
+
+/* -------------------------
+   フッター
+-------------------------- */
+footer {
+    padding: 20px;
+    background: #222;
+    font-size: 13px;
+    color: #cfcfcf;
+}
+
+/* プロフィール画像（丸くする） */
+.profile-image {
+    width: 150px;          /* 大きさ（お好みで変更） */
+    height: 150px;
+    object-fit: cover;     /* トリミングして綺麗に表示 */
+    border-radius: 50%;    /* ← 丸くする */
+    margin-bottom: 20px;   /* 名前との間の余白 */
+}
+
+/* Works ギャラリー（3×3） */
+.works-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* 3列 */
+    gap: 20px;                             /* 画像の間隔 */
+    max-width: 900px;                      /* 全体の幅を制限して整える */
+    margin: 0 auto;                        /* 中央寄せ */
+}
+
+.works-grid img {
+    width: 100%;
+    aspect-ratio: 1 / 1;                   /* 正方形にする */
+    object-fit: cover;                     /* トリミングして綺麗に表示 */
+    border-radius: 8px;                    /* シンプルな角丸（不要なら外せます） */
+}
+
+section h2 {
+    font-size: 50px;   /* ← お好みで 36〜50px などに変更 */
+    margin-bottom: 25px;
+    color: #ffffff;
+}
+
+main {
+    padding-top: 120px; /* ヘッダーの高さ+αの余白を追加 */
+    margin-top: 0;
+}
+
+/* -------------------------
+   Contact ステータス表示のスタイリング
+-------------------------- */
+.status-container {
+    margin-bottom: 30px;
+    padding: 15px 20px;
+    border: 2px dashed var(--accent-color); /* ダッシュ線で枠を強調 */
+    border-radius: 8px;
+    max-width: 450px;
+    margin-left: auto;
+    margin-right: auto;
+    background: #222;
+}
+
+#current-status {
+    font-size: 16px;
+    font-weight: bold;
+    font-family: 'Consolas', 'Courier New', monospace; /* コードっぽいフォント */
+    color: var(--accent-color);
+    margin: 0;
+}
+
+/* 非営業時間のメッセージを強調するスタイル */
+.status-container.off-hours {
+    border-color: #ffcc00; /* 注意を促す黄色 */
+}
+.status-container.off-hours #current-status {
+    color: #ffcc00;
+}
+
+.bunsyou{
+    font-size: 20px;
+}
+
+.name{
+    font-size: 30px;
+}
+
+.About {
+    padding-top: 30px; /* section共通の80pxを上書きして余白を詰める */
+}
+
+/* -------------------------
+   Contactセクション（A+C 統合版）
+-------------------------- */
+.Contact {
+    background: linear-gradient(180deg, #1b1b1b 0%, #252525 100%);
+    padding: 100px 20px;
+    border-top: 1px solid #333;
+}
+
+.contact-inner {
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+/* Plan C: リード文 */
+.contact-header {
+    margin-bottom: 40px;
+}
+
+.contact-header h2 {
+    font-size: 50px;
+    font-weight: 900;
+    margin-bottom: 20px;
+    text-shadow: 0 0 15px rgba(0, 188, 212, 0.3);
+}
+
+.contact-lead {
+    font-size: 18px;
+    color: #ccc;
+    line-height: 1.8;
+}
+
+/* 勤務時間ステータス（微調整） */
+.status-container {
+    display: inline-block;
+    margin-bottom: 50px;
+    padding: 10px 25px;
+    background: #222;
+    border: 1px solid var(--accent-color);
+    border-radius: 50px; /* 丸みをつけてモダンに */
+    box-shadow: 0 0 15px rgba(0, 188, 212, 0.1);
+}
+
+/* Plan A: カードデザイン */
+.contact-cards {
+    list-style: none;
+    padding: 0;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* 横並び・スマホで縦 */
+    gap: 20px;
+}
+
+.contact-cards li a {
+    text-decoration: none;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 30px 20px;
+    background: #2a2a2a;
+    border-radius: 15px;
+    border: 1px solid #333;
+    transition: all 0.4s cubic-bezier(0.25, 1, 0.5, 1);
+    color: #fff;
+}
+
+.contact-cards .icon {
+    font-size: 32px;
+    margin-bottom: 10px;
+}
+
+.contact-cards .label {
+    font-size: 12px;
+    text-transform: uppercase;
+    color: var(--accent-color);
+    letter-spacing: 1px;
+    margin-bottom: 5px;
+}
+
+.contact-cards .value {
+    font-size: 16px;
+    font-weight: bold;
+}
+
+/* ホバーエフェクト：カードが浮き上がり、色が反転する */
+.contact-cards li a:hover {
+    transform: translateY(-10px);
+    background: var(--accent-color);
+    color: #ffffff;
+    border-color: var(--accent-color);
+    box-shadow: 0 15px 30px rgba(0, 188, 212, 0.4);
+}
+
+.contact-cards li a:hover .label {
+    color: #ffffff;
+    opacity: 0.8;
+}
+
+/* --- X (Twitter): 色の反転を無くす設定 --- */
+.sns-x a:hover {
+    /* 背景色を元の色のまま（または少しだけ明るく）にする */
+    background-color: #2a2a2a; 
+    
+    /* 文字色を白のまま固定する */
+    color: #ffffff; 
+    
+    /* 枠線をアクセントカラーにする（または元のままなら #333） */
+    border-color: var(--accent-color); 
+    
+    /* 浮き上がる動きだけは残す（クリック感のため） */
+    transform: translateY(-10px);
+    
+    /* 影を少しだけアクセントカラーにして「光っている感」を出す */
+    box-shadow: 0 10px 20px rgba(0, 188, 212, 0.2);
+}
+
+/* ホバー時に中のラベルの色が変わらないように固定 */
+.sns-x a:hover .label {
+    color: var(--accent-color);
+    opacity: 1;
+}
+
+/* 2番目のカード（Instagram）をインスタっぽいグラデーションに */
+.contact-cards li:nth-child(2) a:hover {
+    background: linear-gradient(45deg, #f09433, #e6683c, #dc2743, #cc23b6, #bc1888);
+    color: #fff;
+    border-color: transparent;
+}
+
+/* 3番目のカード（Email）を落ち着いたグレーに */
+.contact-cards li:nth-child(3) a:hover {
+    background: #444;
+    color: #fff;
+    border-color: var(--accent-color);
+}
+
+/* --- モーダル全体のスタイル --- */
+.modal {
+    display: none; /* 最初は隠しておく */
+    position: fixed;
+    z-index: 2000; /* ヘッダー(1000)より上に表示 */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8); /* 背景を暗く */
+    backdrop-filter: blur(5px); /* 背景をぼかす（おしゃれ！） */
+    cursor: zoom-out; /* クリックで閉じれることを示す */
+    align-items: center;
+    justify-content: center;
+}
+
+/* --- 拡大される画像 --- */
+.modal-content {
+    max-width: 90%;
+    max-height: 90%;
+    object-fit: contain;
+    animation: zoomIn 0.3s ease; /* ふわっと表示するアニメーション */
+}
+
+@keyframes zoomIn {
+    from { transform: scale(0.7); opacity: 0; }
+    to { transform: scale(1); opacity: 1; }
+}
+
+/* --- 閉じるボタン --- */
+.close-button {
+    position: absolute;
+    top: 20px;
+    right: 35px;
+    color: #fff;
+    font-size: 40px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+/* Worksの画像に「クリックできる」ことを示すカーソルを付ける */
+.works-grid img {
+    cursor: zoom-in;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    gap: 25px;
+    padding: 0;
+    margin: 0;
+    font-size: 25px;
+}
+
+nav a {
+    color: #e8e8e8;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+nav a:hover {
+    color: #00bcd4;
+}
