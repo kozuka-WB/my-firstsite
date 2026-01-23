@@ -8,12 +8,12 @@
 </head>
 <body>
     <header>
-        <div class="logo">ロゴ</div>
+        <div class="logo">Portfolio</div>
         <nav>
             <ul>
-                <li>About</li>
-                <li>Works</li>
-                <li>Contact</li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#works">Works</a></li>
+                <li><a href="#contact">Contact</a></li>
             </ul>
         </nav>
     </header>
@@ -23,58 +23,61 @@
             <h1 class="mainvisual">Main Visual</h1>
         </section>
 
-    <section class="About">
-        <h2>About</h2>
+        <section class="About" id="about">
+            <h2>About</h2>
+            <img src="images/Screenshot.png" alt="プロフィール画像" class="profile-image">
+            <p class="name">小塚 優</p>
+            <p class="bunsyou">ゆる〜くのんびりと頑張りすぎないように</p>
+        </section>
 
-        <!-- 🔽 追加（プロフィール画像） -->
-        <img src="images/Screenshot.png" alt="プロフィール画像" class="profile-image">
+        <section class="Works" id="works">
+            <h2>Works</h2>
+            <div class="works-grid">
+                <img src="images/among us.png" alt="アモングアス">
+                <img src="images/Chair and desk.png" alt="椅子と机">
+                <img src="images/glass.png" alt="グラス">
+                <img src="images/Rabbit.png" alt="うさぎ">
+                <img src="images/capsule.png" alt="カプセル">
+                <img src="images/koiru.png" alt="コイル">
+                <img src="images/Jam.png" alt="ジャム">
+                <img src="images/potato.png" alt="ポテト">
+                <img src="images/Battery.png" alt="電池">
+            </div>
+        </section>
 
-        <p class="name">小塚 優</p>
-        <p class="bunsyou">ゆる〜くのんびりと頑張りすぎないように</p>
-    </section>
+        <section class="Contact" id="contact">
+            <h2>Contact</h2>
+            
+            <div class="status-container">
+                <p id="current-status">ステータスを読み込み中...</p>
+            </div>
 
-<section class="Works">
-    <h2>Works</h2>
+            <ul class="contact-cards">
+                <li class="sns-x">
+                    <a href="https://x.com/?lang=ja" target="_blank" rel="noopener">
+                        <span class="icon">𝕏</span>
+                        <span class="label">X (Twitter)</span>
+                        <span class="value">@x_mdc_student84592</span>
+                    </a>
+                </li>
 
-    <div class="works-grid">
-        <img src="images/among us.png" alt="アモングアス">
-        <img src="images/Chair and desk.png" alt="椅子と机">
-        <img src="images/glass.png" alt="グラス">
-        <img src="images/Rabbit.png" alt="うさぎ">
-        <img src="images/capsule.png" alt="カプセル">
-        <img src="images/koiru.png" alt="コイル">
-        <img src="images/Jam.png" alt="ジャム">
-        <img src="images/potato.png" alt="ポテト">
-        <img src="images/Battery.png" alt="電池">
-    </div>
-</section>
+                <li class="sns-insta">
+                    <a href="https://www.instagram.com/" target="_blank" rel="noopener">
+                        <span class="icon">📸</span>
+                        <span class="label">Instagram</span>
+                        <span class="value">@insta_mdc_student84592</span>
+                    </a>
+                </li>
 
-
-<ul class="contact-cards">
-    <li class="sns-x">
-        <a href="https://x.com/?lang=ja" target="_blank" rel="noopener">
-            <span class="icon">𝕏</span>
-            <span class="label">X (Twitter)</span>
-            <span class="value">@x_mdc_student84592</span>
-        </a>
-    </li>
-
-    <li class="sns-insta">
-        <a href="https://www.instagram.com/" target="_blank" rel="noopener">
-            <span class="icon">📸</span>
-            <span class="label">Instagram</span>
-            <span class="value">@insta_mdc_student84592</span>
-        </a>
-    </li>
-
-    <li class="sns-email">
-        <a href="mailto:student84592@mdc-vd.com">
-            <span class="icon">📧</span>
-            <span class="label">Email</span>
-            <span class="value">student84592@mdc-vd.com</span>
-        </a>
-    </li>
-</ul>
+                <li class="sns-email">
+                    <a href="mailto:student84592@mdc-vd.com">
+                        <span class="icon">📧</span>
+                        <span class="label">Email</span>
+                        <span class="value">student84592@mdc-vd.com</span>
+                    </a>
+                </li>
+            </ul>
+        </section>
     </main>
 
     <footer>
@@ -83,87 +86,87 @@
     </footer>
 
     <div id="image-modal" class="modal">
-    <span class="close-button">&times;</span>
-    <img class="modal-content" id="expanded-image">
-</div>
+        <span class="close-button">&times;</span>
+        <img class="modal-content" id="expanded-image">
+    </div>
 
     <script>
 document.addEventListener('DOMContentLoaded', function() {
-    const statusElement = document.getElementById('current-status');
-    const container = document.querySelector('.status-container');
-    
-    function updateStatus() {
-        const now = new Date();
-        const dayOfWeek = now.getDay(); // 0 (日曜日) - 6 (土曜日)
-        const hour = now.getHours();
-        
-        // --- ⚙️ 設定箇所 ------------------------------------
-        const startHour = 10; // 作業開始時間 (10時)
-        const endHour = 18;   // 作業終了時間 (18時)
-        // ----------------------------------------------------
-
-        // 営業日の判定 (1=月曜, 5=金曜)
-        const isWeekday = dayOfWeek >= 1 && dayOfWeek <= 5;
-        
-        // 営業時間内の判定
-        const isWorkingHours = hour >= startHour && hour < endHour;
-        
-        let message = '';
-        
-        if (isWeekday && isWorkingHours) {
-            // 営業時間内 (平日 10:00～18:00)
-            message = `💻 NOW: 作業時間内です。ご連絡は通常2時間以内に確認します！`;
-            container.classList.remove('off-hours');
+    // スムーズスクロール機能
+    document.querySelectorAll('nav a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function(e) {
+            e.preventDefault();
+            const targetId = this.getAttribute('href');
+            const targetElement = document.querySelector(targetId);
             
-        } else if (isWeekday) {
-            // 営業時間外だが平日 (例: 平日の早朝/夜)
-            message = `🌙 NOW: 作業時間外です。緊急でない限り、翌営業日の午前10時以降に確認します。`;
-            container.classList.add('off-hours');
-
-        } else {
-            // 週末 (土曜・日曜)
-            message = `🏝️ NOW: 週末のため休止中です。お問い合わせは月曜に確認します！`;
-            container.classList.add('off-hours');
-        }
-        
-        statusElement.textContent = message;
-    }
-
-    // ページロード時に実行
-    updateStatus();
-
-    // 1分ごとにステータスを更新（時間が変わるタイミングをカバーするため）
-    setInterval(updateStatus, 60000); 
-});
-
-document.addEventListener('DOMContentLoaded', function() {
-    const modal = document.getElementById('image-modal');
-    const expandedImg = document.getElementById('expanded-image');
-    
-    // 画像を探す（.works-gridの中にあるimgタグをすべて取得）
-    const images = document.querySelectorAll('.works-grid img');
-
-    if (!modal || !expandedImg) {
-        console.error("エラー: モーダル用のHTML(id='image-modal')が見つかりません。");
-        return;
-    }
-
-    images.forEach(img => {
-        img.addEventListener('click', () => {
-            console.log("クリックされました:" + img.src); // 動作確認用ログ
-            modal.style.display = 'flex';
-            expandedImg.src = img.src;
-            document.body.style.overflow = 'hidden';
+            if (targetElement) {
+                const headerHeight = document.querySelector('header').offsetHeight;
+                const targetPosition = targetElement.getBoundingClientRect().top + window.pageYOffset - headerHeight;
+                
+                window.scrollTo({
+                    top: targetPosition,
+                    behavior: 'smooth'
+                });
+            }
         });
     });
 
-    modal.addEventListener('click', () => {
-        modal.style.display = 'none';
-        document.body.style.overflow = 'auto';
-    });
+    // ステータス表示機能
+    const statusElement = document.getElementById('current-status');
+    const container = document.querySelector('.status-container');
+    
+    if (statusElement && container) {
+        function updateStatus() {
+            const now = new Date();
+            const dayOfWeek = now.getDay();
+            const hour = now.getHours();
+            
+            const startHour = 10;
+            const endHour = 18;
+            
+            const isWeekday = dayOfWeek >= 1 && dayOfWeek <= 5;
+            const isWorkingHours = hour >= startHour && hour < endHour;
+            
+            let message = '';
+            
+            if (isWeekday && isWorkingHours) {
+                message = `💻 NOW: 作業時間内です。ご連絡は通常2時間以内に確認します！`;
+                container.classList.remove('off-hours');
+            } else if (isWeekday) {
+                message = `🌙 NOW: 作業時間外です。緊急でない限り、翌営業日の午前10時以降に確認します。`;
+                container.classList.add('off-hours');
+            } else {
+                message = `🏝️ NOW: 週末のため休止中です。お問い合わせは月曜に確認します！`;
+                container.classList.add('off-hours');
+            }
+            
+            statusElement.textContent = message;
+        }
+        
+        updateStatus();
+        setInterval(updateStatus, 60000);
+    }
+
+    // モーダル機能
+    const modal = document.getElementById('image-modal');
+    const expandedImg = document.getElementById('expanded-image');
+    const images = document.querySelectorAll('.works-grid img');
+
+    if (modal && expandedImg) {
+        images.forEach(img => {
+            img.addEventListener('click', () => {
+                modal.style.display = 'flex';
+                expandedImg.src = img.src;
+                document.body.style.overflow = 'hidden';
+            });
+        });
+
+        modal.addEventListener('click', () => {
+            modal.style.display = 'none';
+            document.body.style.overflow = 'auto';
+        });
+    }
 });
-</script>
-
-
+    </script>
 </body>
 </html>
